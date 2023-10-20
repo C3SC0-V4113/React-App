@@ -1,7 +1,9 @@
+import { Navigation } from "./routes";
+
 function App() {
   return (
     <>
-      <h1>App.tsx</h1>
+      <Navigation />
     </>
   );
 }
