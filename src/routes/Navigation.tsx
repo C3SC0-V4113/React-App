@@ -1,12 +1,11 @@
 import {
   NavLink,
-  Navigate,
   Outlet,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
 import logo from "../assets/react.svg";
-import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
+import { LazyRoutes } from "./LazyRoutes";
 
 const Root = () => {
   return (
@@ -14,30 +13,16 @@ const Root = () => {
       <nav>
         <img src={logo} alt="React Logo" />
         <ul>
-          <li>
-            <NavLink
-              to={"/"}
-              className={({ isActive }) => (isActive ? "nav-active" : "")}
-            >
-              Home
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/lazy2"}
-              className={({ isActive }) => (isActive ? "nav-active" : "")}
-            >
-              About
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to={"/lazy3"}
-              className={({ isActive }) => (isActive ? "nav-active" : "")}
-            >
-              Users
-            </NavLink>
-          </li>
+          {LazyRoutes.map((route, index) => (
+            <li key={index}>
+              <NavLink
+                to={route.path ? route.path : "/"}
+                className={({ isActive }) => (isActive ? "nav-active" : "")}
+              >
+                {route.handle}
+              </NavLink>
+            </li>
+          ))}
         </ul>
       </nav>
       <Outlet />
@@ -50,24 +35,7 @@ export const Navigation = () => {
     {
       path: "/",
       element: <Root />,
-      children: [
-        {
-          index: true,
-          element: <LazyPage1 />,
-        },
-        {
-          path: "lazy2",
-          element: <LazyPage2 />,
-        },
-        {
-          path: "lazy3",
-          element: <LazyPage3 />,
-        },
-        {
-          path: "*",
-          element: <Navigate to={"/"} replace />,
-        },
-      ],
+      children: LazyRoutes,
     },
   ]);
   return <RouterProvider router={router} />;
