@@ -6,6 +6,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import logo from "../assets/react.svg";
+import { LazyPage1, LazyPage2, LazyPage3 } from "../01-lazyload/pages";
 
 const Root = () => {
   return (
@@ -23,7 +24,7 @@ const Root = () => {
           </li>
           <li>
             <NavLink
-              to={"/about"}
+              to={"/lazy2"}
               className={({ isActive }) => (isActive ? "nav-active" : "")}
             >
               About
@@ -31,7 +32,7 @@ const Root = () => {
           </li>
           <li>
             <NavLink
-              to={"/users"}
+              to={"/lazy3"}
               className={({ isActive }) => (isActive ? "nav-active" : "")}
             >
               Users
@@ -52,15 +53,15 @@ export const Navigation = () => {
       children: [
         {
           index: true,
-          element: <h1>Home Page</h1>,
+          element: <LazyPage1 />,
         },
         {
-          path: "about",
-          element: <h1>About</h1>,
+          path: "lazy2",
+          element: <LazyPage2 />,
         },
         {
-          path: "users",
-          element: <h1>Users</h1>,
+          path: "lazy3",
+          element: <LazyPage3 />,
         },
         {
           path: "*",
