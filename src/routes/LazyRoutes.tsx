@@ -19,6 +19,6 @@ export const LazyRoutes: RouteObject[] = [
   },
   {
     path: "*",
-    element: <Navigate to={"/lazy1"} replace />,
+    element: <Navigate to={"/"} replace />,
   },
 ];
