@@ -1,37 +1,24 @@
 import { RouteObject, Navigate } from "react-router-dom";
 import { lazy } from "react";
+import NoLazy from "../01-lazyload/pages/NoLazy";
+import { LazyLoadRoutes } from "../01-lazyload/router/LazyLoadRoutes";
 
-const Lazy1 = await lazy(
-  () =>
-    import(/*webpackChunkName: "LazyPage1"*/ "../01-lazyload/pages/LazyPage1")
-);
-const Lazy2 = await lazy(
-  () =>
-    import(/*webpackChunkName: "LazyPage2"*/ "../01-lazyload/pages/LazyPage2")
-);
-const Lazy3 = await lazy(
-  () =>
-    import(/*webpackChunkName: "LazyPage3"*/ "../01-lazyload/pages/LazyPage3")
-);
+const LazyLoad = await lazy(() => import("./LazyLoad"));
 
 export const LazyRoutes: RouteObject[] = [
   {
-    index: true,
-    handle: "LazyPage 1",
-    element: <Lazy1 />,
+    path: "lazy-load",
+    handle: "LazyLoad",
+    element: <LazyLoad />,
+    children: [...LazyLoadRoutes],
   },
   {
-    path: "lazy2",
-    handle: "LazyPage 2",
-    element: <Lazy2 />,
-  },
-  {
-    path: "lazy3",
-    handle: "LazyPage 3",
-    element: <Lazy3 />,
+    path: "no-lazy",
+    handle: "No Lazy",
+    element: <NoLazy />,
   },
   {
     path: "*",
-    element: <Navigate to={"/"} replace />,
+    element: <Navigate to={"/lazy-load"} replace />,
   },
 ];

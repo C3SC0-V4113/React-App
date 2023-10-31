@@ -1,42 +1,24 @@
 import {
-  NavLink,
-  Outlet,
+  Navigate,
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
-import logo from "../assets/react.svg";
 import { LazyRoutes } from "./LazyRoutes";
 import { Suspense } from "react";
+import { lazy } from "react";
 
-const Root = () => {
-  return (
-    <div className="main-layout">
-      <nav>
-        <img src={logo} alt="React Logo" />
-        <ul>
-          {LazyRoutes.map((route, index) => (
-            <li key={index}>
-              <NavLink
-                to={route.path ? route.path : "/"}
-                className={({ isActive }) => (isActive ? "nav-active" : "")}
-              >
-                {route.handle}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <Outlet />
-    </div>
-  );
-};
+const LazyRoot = await lazy(() => import("./Root"));
 
 export const Navigation = () => {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Root />,
+      element: <LazyRoot />,
       children: LazyRoutes,
+    },
+    {
+      path: "*",
+      element: <Navigate to={"/lazy-load"} replace />,
     },
   ]);
   return (
