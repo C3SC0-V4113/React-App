@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import logo from "../assets/react.svg";
 import { LazyRoutes } from "./LazyRoutes";
+import { Suspense } from "react";
 
 const Root = () => {
   return (
@@ -38,5 +39,9 @@ export const Navigation = () => {
       children: LazyRoutes,
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <Suspense fallback={<span>Loading...</span>}>
+      <RouterProvider router={router} />
+    </Suspense>
+  );
 };
