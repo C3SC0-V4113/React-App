@@ -4,7 +4,8 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { Root } from "../pages/Root";
-import { NormalRoutes } from "./NormalRoutes";
+import { ShoopingRoutes } from "../02-component-pattern/routes/ShoopingRoutes";
+// import { NormalRoutes } from "./NormalRoutes";
 // import { LazyRoutes } from "./LazyRoutes";
 // import { Suspense } from "react";
 // import { lazy } from "react";
@@ -17,7 +18,7 @@ export const Navigation = () => {
       path: "/",
       element: <Root />,
       // children: LazyRoutes,
-      children: NormalRoutes,
+      children: ShoopingRoutes,
     },
     {
       path: "*",
