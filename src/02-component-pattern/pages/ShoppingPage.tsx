@@ -3,7 +3,7 @@ import {
   ProductCard,
   ProductImage,
   ProductTitle,
-} from "../components/ProductCard";
+} from "../components";
 
 const product = {
   id: "1",
@@ -25,11 +25,11 @@ export const ShoppingPage = () => {
         }}
       >
         {" "}
-        <ProductCard product={product}>
+        {/* <ProductCard product={product}>
           <ProductCard.Image />
           <ProductCard.Title title="Café" />
           <ProductCard.Buttons />
-        </ProductCard>
+        </ProductCard> */}
         <ProductCard product={product}>
           <ProductImage />
           <ProductTitle />
