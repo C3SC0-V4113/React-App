@@ -5,12 +5,12 @@ import styles from "../styles/styles.module.css";
 
 import { ProductContext } from "./ProductCard";
 
-interface Props {
+export interface ProductImageProps {
   img?: string;
   className?: string;
 }
 
-export const ProductImage = ({ img = "", className }: Props) => {
+export const ProductImage = ({ img = "", className }: ProductImageProps) => {
   const { product } = useContext(ProductContext);
 
   let imgToShow: string;
@@ -30,3 +30,5 @@ export const ProductImage = ({ img = "", className }: Props) => {
     />
   );
 };
+
+export default ProductImage;

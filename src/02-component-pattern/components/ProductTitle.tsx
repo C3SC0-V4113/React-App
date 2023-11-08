@@ -4,12 +4,12 @@ import { useContext } from "react";
 
 import { ProductContext } from "./ProductCard";
 
-interface Props {
+export interface ProductTitleProps {
   className?: string;
   title?: string;
 }
 
-export const ProductTitle = ({ title, className }: Props) => {
+export const ProductTitle = ({ title, className }: ProductTitleProps) => {
   const { product } = useContext(ProductContext);
 
   return (
@@ -18,3 +18,5 @@ export const ProductTitle = ({ title, className }: Props) => {
     </span>
   );
 };
+
+export default ProductTitle;

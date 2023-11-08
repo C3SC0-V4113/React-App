@@ -6,13 +6,17 @@ import { Product, ProductContextProps } from "../interfaces/interfaces";
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
-export interface Props {
+export interface ProductCardProps {
   product: Product;
   children?: React.ReactElement | React.ReactElement[];
   className?: string;
 }
 
-export const ProductCard = ({ children, product, className }: Props) => {
+export const ProductCard = ({
+  children,
+  product,
+  className,
+}: ProductCardProps) => {
   const { counter, increaseBy } = useProducts();
 
   return (

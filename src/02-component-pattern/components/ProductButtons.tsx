@@ -4,11 +4,11 @@ import { useContext } from "react";
 
 import { ProductContext } from "./ProductCard";
 
-interface Props {
+export interface ProductButtonsProps {
   className?: string;
 }
 
-export const ProductButtons = ({ className }: Props) => {
+export const ProductButtons = ({ className }: ProductButtonsProps) => {
   const { counter, increaseBy } = useContext(ProductContext);
   return (
     <div className={`${styles.buttonsContainer} ${className}`}>
@@ -22,3 +22,5 @@ export const ProductButtons = ({ className }: Props) => {
     </div>
   );
 };
+
+export default ProductButtons;
