@@ -32,10 +32,10 @@ export const ShoppingPage = () => {
           <ProductCard.Title title="Café" />
           <ProductCard.Buttons />
         </ProductCard>
-        <ProductCard product={product} className="bg-dark">
+        <ProductCard product={product} className="bg-dark text-white">
           <ProductImage className="custom-image" />
-          <ProductTitle className="text-white text-bold" />
-          <ProductButtons />
+          <ProductTitle className="text-bold" />
+          <ProductButtons className="custom-buttons" />
         </ProductCard>
       </div>
     </div>
