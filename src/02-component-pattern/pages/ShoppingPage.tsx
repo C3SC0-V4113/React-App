@@ -5,6 +5,8 @@ import {
   ProductTitle,
 } from "../components";
 
+import "../styles/custom-styles.css";
+
 const product = {
   id: "1",
   title: "Coffee Mug - Card",
@@ -30,7 +32,7 @@ export const ShoppingPage = () => {
           <ProductCard.Title title="Café" />
           <ProductCard.Buttons />
         </ProductCard>
-        <ProductCard product={product}>
+        <ProductCard product={product} className="bg-dark">
           <ProductImage />
           <ProductTitle />
           <ProductButtons />
