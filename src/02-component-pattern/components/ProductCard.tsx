@@ -11,6 +11,7 @@ export interface ProductCardProps {
   children?: React.ReactElement | React.ReactElement[];
   className?: string;
   style?: CSSProperties;
+  onChange?: () => void;
 }
 
 export const ProductCard = ({
@@ -18,8 +19,9 @@ export const ProductCard = ({
   product,
   className,
   style,
+  onChange,
 }: ProductCardProps) => {
-  const { counter, increaseBy } = useProducts();
+  const { counter, increaseBy } = useProducts(onChange);
 
   return (
     <Provider value={{ counter, increaseBy, product }}>
