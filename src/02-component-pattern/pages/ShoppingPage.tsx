@@ -30,7 +30,7 @@ interface ProductInCart extends Product {
 export const ShoppingPage = () => {
   const [shoppingCart, setShoppingCart] = useState<{
     [key: string]: ProductInCart;
-  }>();
+  }>({});
 
   const onProductCountChange = ({
     count,
@@ -39,6 +39,19 @@ export const ShoppingPage = () => {
     count: number;
     product: Product;
   }) => {
+    setShoppingCart((oldShoppingCart) => {
+      if (count === 0) {
+        const { [product.id]: toDelete, ...rest } = oldShoppingCart;
+
+        console.log("Deleted: ", toDelete);
+        return rest;
+      }
+
+      return {
+        ...oldShoppingCart,
+        [product.id]: { ...product, count },
+      };
+    });
     console.log("onProductCountChange ", count, product);
   };
 
@@ -68,7 +81,6 @@ export const ShoppingPage = () => {
         ))}
       </div>
       <div className="shopping-cart">
-        {" "}
         <ProductCard
           product={product2}
           className="bg-dark text-white"
@@ -85,6 +97,9 @@ export const ShoppingPage = () => {
           <ProductImage className="custom-image" />
           <ProductButtons className="custom-buttons" />
         </ProductCard>
+      </div>
+      <div>
+        <code>{JSON.stringify(shoppingCart, null, 5)}</code>
       </div>
     </div>
   );
