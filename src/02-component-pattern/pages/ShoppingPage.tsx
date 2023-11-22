@@ -39,6 +39,7 @@ export const ShoppingPage = () => {
     count: number;
     product: Product;
   }) => {
+    console.log({ count });
     setShoppingCart((oldShoppingCart) => {
       if (count === 0) {
         const { [product.id]: toDelete, ...rest } = oldShoppingCart;
@@ -52,7 +53,6 @@ export const ShoppingPage = () => {
         [product.id]: { ...product, count },
       };
     });
-    console.log("onProductCountChange ", count, product);
   };
 
   return (
