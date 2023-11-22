@@ -6,9 +6,10 @@ import {
   ProductTitle,
 } from "../components";
 import { useShoppingCart } from "../hooks/useShoppingCart";
+import { products } from "../data/products";
 
 export const ShoppingPage = () => {
-  const { products, onProductCountChange, shoppingCart } = useShoppingCart();
+  const { onProductCountChange, shoppingCart } = useShoppingCart();
 
   return (
     <div>
