@@ -1,4 +1,3 @@
-import "../styles/custom-styles.css";
 import {
   ProductButtons,
   ProductCard,
@@ -7,6 +6,8 @@ import {
 } from "../components";
 import { useShoppingCart } from "../hooks/useShoppingCart";
 import { products } from "../data/products";
+
+import "../styles/custom-styles.css";
 
 export const ShoppingPage = () => {
   const { onProductCountChange, shoppingCart } = useShoppingCart();
