@@ -28,6 +28,14 @@ export const useProducts = ({
   const increaseBy = (value: number) => {
     const newValue = Math.max(counter + value, 0);
 
+    if (initialValues?.maxCount) {
+      newValue > initialValues.maxCount
+        ? setCounter(initialValues.maxCount)
+        : setCounter(newValue);
+
+      return;
+    }
+
     setCounter(newValue);
 
     onChange && onChange({ count: newValue, product });
