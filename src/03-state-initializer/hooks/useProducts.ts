@@ -1,18 +1,20 @@
 import { useEffect, useRef, useState } from "react";
-import { Product, onChangeArgs } from "../interfaces/interfaces";
+import { InitialValues, Product, onChangeArgs } from "../interfaces/interfaces";
 
 interface useProductsArgs {
   product: Product;
   onChange?: (args: onChangeArgs) => void;
   value?: number;
+  initialValues?: InitialValues;
 }
 
 export const useProducts = ({
   onChange,
   product,
   value = 0,
+  initialValues,
 }: useProductsArgs) => {
-  const [counter, setCounter] = useState(value);
+  const [counter, setCounter] = useState<number>(initialValues?.count || value);
 
   const isControlled = useRef(!!onChange);
 
