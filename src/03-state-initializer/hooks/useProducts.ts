@@ -6,6 +6,7 @@ interface useProductsArgs {
   onChange?: (args: onChangeArgs) => void;
   value?: number;
   initialValues?: InitialValues;
+  maxCount?: number;
 }
 
 export const useProducts = ({
@@ -40,6 +41,7 @@ export const useProducts = ({
   return {
     // properties}
     counter,
+    maxCount: initialValues?.maxCount,
     // methods
     increaseBy,
   };
