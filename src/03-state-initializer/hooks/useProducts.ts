@@ -26,6 +26,10 @@ export const useProducts = ({
     setCounter(value);
   }, [value]);
 
+  const reset = () => {
+    setCounter(initialValues?.count || value);
+  };
+
   const increaseBy = (value: number) => {
     let newValue = Math.max(counter + value, 0);
 
@@ -41,8 +45,11 @@ export const useProducts = ({
   return {
     // properties}
     counter,
+    isMaxCountReached:
+      !!initialValues?.count && initialValues.maxCount === counter,
     maxCount: initialValues?.maxCount,
     // methods
     increaseBy,
+    reset,
   };
 };
