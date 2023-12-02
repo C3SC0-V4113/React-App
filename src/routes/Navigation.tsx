@@ -4,7 +4,8 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import { Root } from "../pages/Root";
-import { ShoopingRoutes } from "../03-state-initializer/routes/ShoopingRoutes";
+import { FormRoutes } from "../04-forms/routes/FormRoutes";
+// import { ShoopingRoutes } from "../03-state-initializer/routes/ShoopingRoutes";
 // import { ShoopingRoutes } from "../02-component-pattern/routes/ShoopingRoutes";
 // import { NormalRoutes } from "./NormalRoutes";
 // import { LazyRoutes } from "./LazyRoutes";
@@ -19,7 +20,7 @@ export const Navigation = () => {
       path: "/",
       element: <Root />,
       // children: LazyRoutes,
-      children: ShoopingRoutes,
+      children: FormRoutes,
     },
     {
       path: "*",
