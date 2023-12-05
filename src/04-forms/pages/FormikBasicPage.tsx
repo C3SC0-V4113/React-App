@@ -18,9 +18,9 @@ const FormikBasicPage = () => {
     }
 
     if (!lastName) {
-      errors.firstName = "Required";
-    } else if (firstName.length > 10) {
-      errors.firstName = "Must be less than 10 characters";
+      errors.lastName = "Required";
+    } else if (lastName.length > 10) {
+      errors.lastName = "Must be less than 10 characters";
     }
 
     if (!email) {
@@ -34,17 +34,18 @@ const FormikBasicPage = () => {
     return errors;
   };
 
-  const { handleChange, values, handleSubmit } = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-    },
-    validate,
-    onSubmit: (values) => {
-      console.log(values);
-    },
-  });
+  const { handleChange, values, handleSubmit, errors, handleBlur, touched } =
+    useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+      },
+      validate,
+      onSubmit: (values) => {
+        console.log(values);
+      },
+    });
 
   return (
     <div>
@@ -54,29 +55,33 @@ const FormikBasicPage = () => {
         <input
           type="text"
           name="firstName"
+          onBlur={handleBlur}
           onChange={handleChange}
           value={values.firstName}
         />
-        <span>First Name is required</span>
+        {touched.firstName && errors.firstName && (
+          <span>{errors.firstName}</span>
+        )}
 
         <label htmlFor="lastName">Last Name</label>
         <input
           type="text"
           name="lastName"
           onChange={handleChange}
+          onBlur={handleBlur}
           value={values.lastName}
         />
-        <span>Last Name is required</span>
+        {touched.lastName && errors.lastName && <span>{errors.lastName}</span>}
 
         <label htmlFor="email">Email Address</label>
         <input
           type="email"
           name="email"
           onChange={handleChange}
+          onBlur={handleBlur}
           value={values.email}
         />
-        <span>Email is required</span>
-        <span>Invalid email</span>
+        {touched.email && errors.email && <span>{errors.email}</span>}
 
         <button type="submit">Submit</button>
       </form>
