@@ -1,7 +1,8 @@
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "../assets/react.svg";
+import { FormRoutes } from "../04-forms/routes/FormRoutes";
 
-import { LazyRoutes } from "./LazyRoutes";
+// import { LazyRoutes } from "./LazyRoutes";
 
 const Root = () => {
   return (
@@ -9,7 +10,7 @@ const Root = () => {
       <nav>
         <img src={logo} alt="React Logo" />
         <ul>
-          {LazyRoutes.map((route, index) => (
+          {FormRoutes.map((route, index) => (
             <li key={index}>
               <NavLink
                 to={route.path ? route.path : "/"}
