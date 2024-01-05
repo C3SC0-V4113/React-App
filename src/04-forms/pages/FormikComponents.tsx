@@ -12,6 +12,8 @@ const FormikComponents = () => {
           firstName: "",
           lastName: "",
           email: "",
+          terms: false,
+          jobType: "",
         }}
         onSubmit={(values) => {
           console.log(values);
@@ -26,6 +28,13 @@ const FormikComponents = () => {
           email: Yup.string()
             .email("Formato de correo no valido")
             .required("Requerido"),
+          terms: Yup.boolean().oneOf(
+            [true],
+            "Debe de aceptar los terminos de uso"
+          ),
+          jobType: Yup.string()
+            .required("Requerido")
+            .notOneOf(["it-jr"], "No se están permitiendo jrs newbie"),
         })}
       >
         {(formik) => (
@@ -41,6 +50,22 @@ const FormikComponents = () => {
             <label htmlFor="email">Email Address</label>
             <Field name="email" type="email" />
             <ErrorMessage name={"email"} component={"span"} />
+
+            <label htmlFor="jobType">Job Type</label>
+            <Field name="jobType" as="select">
+              <option value="">Pick Something</option>
+              <option value="developer">Developer</option>
+              <option value="designer">Designer</option>
+              <option value="it-senior">IT Senior</option>
+              <option value="it-jr">IT Junior</option>
+            </Field>
+            <ErrorMessage name={"jobType"} component={"span"} />
+
+            <label>
+              <Field name="terms" type="checkbox" />
+              Terms of Service
+            </label>
+            <ErrorMessage name={"terms"} component={"span"} />
 
             <button type="submit">Submit</button>
           </Form>
