@@ -3,6 +3,7 @@ import { RouteObject } from "react-router-dom";
 import RegisterPage from "../pages/RegisterPage";
 import FormikBasicPage from "../pages/FormikBasicPage";
 import FormikYupPage from "../pages/FormikYupPage";
+import FormikComponents from "../pages/FormikComponents";
 
 export const FormRoutes: RouteObject[] = [
   {
@@ -19,5 +20,10 @@ export const FormRoutes: RouteObject[] = [
     path: "/formik-yup",
     handle: "Formik Yup",
     element: <FormikYupPage />,
+  },
+  {
+    path: "/formik-components",
+    handle: "Formik Components",
+    element: <FormikComponents />,
   },
 ];
