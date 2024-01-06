@@ -1,11 +1,12 @@
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import "../styles/styles.css";
 import * as Yup from "yup";
+import { MyTextInput } from "../components/MyTextInput";
 
-const FormikComponents = () => {
+const FormikAbstract = () => {
   return (
     <div>
-      <h1>Formik Components Tutorial</h1>
+      <h1>Formik Abstract Tutorial</h1>
 
       <Formik
         initialValues={{
@@ -39,17 +40,19 @@ const FormikComponents = () => {
       >
         {(formik) => (
           <Form noValidate>
-            <label htmlFor="firstName">First Name</label>
-            <Field name="firstName" type="text" placeholder="First Name" />
-            <ErrorMessage name={"firstName"} component={"span"} />
+            <MyTextInput
+              label="First Name"
+              name="firstName"
+              placeholder="Tu nombre"
+            />
 
-            <label htmlFor="lastName">Last Name</label>
-            <Field name="lastName" type="text" />
-            <ErrorMessage name={"lastName"} component={"span"} />
+            <MyTextInput
+              label="Last Name"
+              name="lastName"
+              placeholder="Tu apellido"
+            />
 
-            <label htmlFor="email">Email Address</label>
-            <Field name="email" type="email" />
-            <ErrorMessage name={"email"} component={"span"} />
+            <MyTextInput label="Email Address" name="email" type="email" />
 
             <label htmlFor="jobType">Job Type</label>
             <Field name="jobType" as="select">
@@ -74,5 +77,4 @@ const FormikComponents = () => {
     </div>
   );
 };
-
-export default FormikComponents;
+export default FormikAbstract;
