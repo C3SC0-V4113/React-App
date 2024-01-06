@@ -2,7 +2,7 @@ import { useFormik } from "formik";
 import "../styles/styles.css";
 import * as Yup from "yup";
 
-const FormikYupPage = () => {
+export const FormikYupPage = () => {
   const { handleSubmit, errors, touched, getFieldProps } = useFormik({
     initialValues: {
       firstName: "",
@@ -48,5 +48,3 @@ const FormikYupPage = () => {
     </div>
   );
 };
-
-export default FormikYupPage;

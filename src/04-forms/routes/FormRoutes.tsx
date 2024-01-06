@@ -1,10 +1,11 @@
 import { RouteObject } from "react-router-dom";
-// import { FormsPages } from "../pages/FormsPages";
-import RegisterPage from "../pages/RegisterPage";
-import FormikBasicPage from "../pages/FormikBasicPage";
-import FormikYupPage from "../pages/FormikYupPage";
-import FormikComponents from "../pages/FormikComponents";
-import FormikAbstract from "../pages/FormikAbstract";
+import {
+  FormikAbstract,
+  FormikBasicPage,
+  FormikComponents,
+  FormikYupPage,
+  RegisterPage,
+} from "../pages";
 
 export const FormRoutes: RouteObject[] = [
   {

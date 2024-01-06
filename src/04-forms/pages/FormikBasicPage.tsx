@@ -7,7 +7,7 @@ interface FormValues {
   email: string;
 }
 
-const FormikBasicPage = () => {
+export const FormikBasicPage = () => {
   const validate = ({ email, firstName, lastName }: FormValues) => {
     const errors: FormikErrors<FormValues> = {};
 
@@ -88,5 +88,3 @@ const FormikBasicPage = () => {
     </div>
   );
 };
-
-export default FormikBasicPage;

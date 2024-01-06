@@ -2,7 +2,7 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import "../styles/styles.css";
 import * as Yup from "yup";
 
-const FormikComponents = () => {
+export const FormikComponents = () => {
   return (
     <div>
       <h1>Formik Components Tutorial</h1>
@@ -37,7 +37,7 @@ const FormikComponents = () => {
             .notOneOf(["it-jr"], "No se están permitiendo jrs newbie"),
         })}
       >
-        {(formik) => (
+        {() => (
           <Form noValidate>
             <label htmlFor="firstName">First Name</label>
             <Field name="firstName" type="text" placeholder="First Name" />
@@ -74,5 +74,3 @@ const FormikComponents = () => {
     </div>
   );
 };
-
-export default FormikComponents;

@@ -1,11 +1,9 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
 import "../styles/styles.css";
+import { Formik, Form } from "formik";
+import { MyCheckBoxInput, MySelectInput, MyTextInput } from "../components";
 import * as Yup from "yup";
-import { MyTextInput } from "../components/MyTextInput";
-import { MySelectInput } from "../components/MySelectInput";
-import { MyCheckBoxInput } from "../components/MyCheckBoxInput";
 
-const FormikAbstract = () => {
+export const FormikAbstract = () => {
   return (
     <div>
       <h1>Formik Abstract Tutorial</h1>
@@ -40,7 +38,7 @@ const FormikAbstract = () => {
             .notOneOf(["it-jr"], "No se están permitiendo jrs newbie"),
         })}
       >
-        {(formik) => (
+        {() => (
           <Form noValidate>
             <MyTextInput
               label="First Name"
@@ -73,4 +71,3 @@ const FormikAbstract = () => {
     </div>
   );
 };
-export default FormikAbstract;
