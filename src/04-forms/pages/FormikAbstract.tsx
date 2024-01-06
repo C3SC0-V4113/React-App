@@ -3,6 +3,7 @@ import "../styles/styles.css";
 import * as Yup from "yup";
 import { MyTextInput } from "../components/MyTextInput";
 import { MySelectInput } from "../components/MySelectInput";
+import { MyCheckBoxInput } from "../components/MyCheckBoxInput";
 
 const FormikAbstract = () => {
   return (
@@ -63,11 +64,7 @@ const FormikAbstract = () => {
               <option value="it-jr">IT Junior</option>
             </MySelectInput>
 
-            <label>
-              <Field name="terms" type="checkbox" />
-              Terms of Service
-            </label>
-            <ErrorMessage name={"terms"} component={"span"} />
+            <MyCheckBoxInput label="Terms of Service" name="terms" />
 
             <button type="submit">Submit</button>
           </Form>
