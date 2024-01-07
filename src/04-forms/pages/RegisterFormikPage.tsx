@@ -30,7 +30,7 @@ export const RegisterFormikPage = () => {
             .required("Requerido"),
         })}
       >
-        {({ resetForm }) => (
+        {({ handleReset }) => (
           <Form noValidate>
             <label htmlFor="username">Name</label>
             <Field name="username" type="text" placeholder="Name" />
@@ -49,7 +49,7 @@ export const RegisterFormikPage = () => {
             <ErrorMessage name={"passwordRepeat"} component={"span"} />
 
             <button type="submit">Create</button>
-            <button type="button" onClick={() => resetForm()}>
+            <button type="button" onClick={handleReset}>
               Reset
             </button>
           </Form>
