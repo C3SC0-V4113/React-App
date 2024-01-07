@@ -1,5 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import {
+  DynamicFormik,
   FormikAbstract,
   FormikBasicPage,
   FormikComponents,
@@ -38,5 +39,10 @@ export const FormRoutes: RouteObject[] = [
     path: "/formik-register",
     handle: "Formik Register",
     element: <RegisterFormikPage />,
+  },
+  {
+    path: "/formik-dynamic",
+    handle: "Formik Dynamic",
+    element: <DynamicFormik />,
   },
 ];
