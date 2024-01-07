@@ -4,6 +4,7 @@ import {
   FormikBasicPage,
   FormikComponents,
   FormikYupPage,
+  RegisterFormikPage,
   RegisterPage,
 } from "../pages";
 
@@ -32,5 +33,10 @@ export const FormRoutes: RouteObject[] = [
     path: "/formik-abstract",
     handle: "Formik Abstract",
     element: <FormikAbstract />,
+  },
+  {
+    path: "/formik-register",
+    handle: "Formik Register",
+    element: <RegisterFormikPage />,
   },
 ];
