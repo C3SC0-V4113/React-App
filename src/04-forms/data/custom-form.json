@@ -19,5 +19,16 @@
     "placeholder": "example@example.com",
     "label": "Email Address",
     "value": ""
+  },
+  {
+    "type": "select",
+    "name": "favoriteGame",
+    "label": "Favorite Game",
+    "value": "",
+    "options": [
+      { "id": 1, "label": "Super Smash Bros" },
+      { "id": 2, "label": "Metal Gear" },
+      { "id": 3, "label": "Resident Evil" }
+    ]
   }
 ]
