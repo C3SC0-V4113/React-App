@@ -5,11 +5,20 @@ import { MyTextInput } from "../components";
 
 import formJson from "../data/custom-form.json";
 
+const initialValues: { [key: string]: string | number | boolean } = {};
+
+for (const input of formJson) {
+  initialValues[input.name] = input.value;
+}
+
 export const DynamicFormik = () => {
   return (
     <div>
       <h1>Dynamic Formik</h1>
-      <Formik initialValues={{}} onSubmit={(values) => console.log(values)}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={(values) => console.log(values)}
+      >
         {({ handleReset }) => (
           <Form noValidate>
             {formJson.map(({ type, label, name, placeholder }) => {
