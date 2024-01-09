@@ -8,6 +8,10 @@
     "validations": [
       {
         "type": "required"
+      },
+      {
+        "type": "minLength",
+        "value": 5
       }
     ]
   },
@@ -23,7 +27,16 @@
     "name": "email",
     "placeholder": "example@example.com",
     "label": "Email Address",
-    "value": ""
+    "value": "",
+    "validations": [
+      {
+        "type": "required"
+      },
+      {
+        "type": "email",
+        "value": "Please enter a valid email address"
+      }
+    ]
   },
   {
     "type": "select",

@@ -27,6 +27,17 @@ for (const input of formJson) {
       schema = schema.required("Este campo es requerido");
     }
 
+    if (rule.type === "minLength") {
+      schema = schema.min(
+        rule.value as number,
+        `Debe tener una cantidad de caracteres mayor o igual a ${rule.value}`
+      );
+    }
+
+    if (rule.type === "email") {
+      schema = schema.email(rule.value as string);
+    }
+
     // ... more rules
   }
 
